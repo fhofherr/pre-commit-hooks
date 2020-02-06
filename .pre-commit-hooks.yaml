@@ -1,0 +1,8 @@
+---
+- id: golint
+  description: "Runs golint. Requires it to be installed separately"
+  name: go lint
+  entry: "golang/golint.sh"
+  types:
+    - go
+  language: script
