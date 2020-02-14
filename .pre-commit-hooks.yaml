@@ -6,6 +6,14 @@
   types:
     - go
   language: script
+- id: go-mod-tidy
+  description: "Runs go mod tidy. Requires go to be installed separately"
+  name: go-mod-tidy
+  entry: "golang/go-mod-tidy.sh"
+  types:
+    - go
+  language: script
+  pass_filenames: false
 - id: shellcheck
   description: "Run shellcheck. Requires shellcheck to be installed separately"
   name: shellcheck
