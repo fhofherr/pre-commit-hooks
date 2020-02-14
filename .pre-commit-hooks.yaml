@@ -6,3 +6,10 @@
   types:
     - go
   language: script
+- id: shellcheck
+  description: "Run shellcheck. Requires shellcheck to be installed separately"
+  name: shellcheck
+  entry: "shell/shellcheck.sh"
+  types:
+    - shell
+  language: script
