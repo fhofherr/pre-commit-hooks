@@ -1,4 +1,12 @@
 ---
+- id: buf-check-lint
+  description: "Runs buf check lint. Requires go to be installed separately"
+  name: buf-check-lint
+  entry: "protobuf/buf-check-lint.sh"
+  types:
+    - proto
+  language: script
+  pass_filenames: false
 - id: golint
   description: "Runs golint. Requires it to be installed separately"
   name: go lint
