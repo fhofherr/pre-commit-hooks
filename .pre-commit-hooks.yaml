@@ -22,6 +22,14 @@
     - go
   language: script
   pass_filenames: false
+- id: revive
+  description: "Runs revive for the current project"
+  name: revive
+  entry: "golang/revive.sh"
+  types:
+    - go
+  language: script
+  pass_filenames: false
 - id: shellcheck
   description: "Run shellcheck. Requires shellcheck to be installed separately"
   name: shellcheck
