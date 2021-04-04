@@ -37,3 +37,10 @@
   types:
     - shell
   language: script
+- id: make
+  description: "Run an arbitrary make target"
+  name: make
+  entry: "make/make.sh"
+  always_run: true
+  language: script
+  pass_filenames: false
