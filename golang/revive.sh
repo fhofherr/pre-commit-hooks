@@ -2,14 +2,32 @@
 
 : "${REVIVE_CFG:=.revive.toml}"
 
-REVIVE="$(command -v revive)"
-if [ -z "$REVIVE" ]; then
-    echo "revive: not installed"
+set -euo pipefail
+
+function abort() {
+    if [[ -n "$1" ]]; then
+        echo "$1"
+    fi
     exit 1
-fi
+}
+
+REVIVE="$(command -v revive 2>/dev/null)"
+
+while (($# > 0)); do
+    case "$1" in
+    -c | --cmd)
+        REVIVE="$2"
+        shift
+        shift
+        ;;
+    esac
+done
+
+[[ -n "$REVIVE" ]] || abort "revive not found or not set"
+[[ -x "$REVIVE" ]] || abort "$REVIVE not executable"
 
 if [[ ! -f "${REVIVE_CFG}" ]]; then
-    command cat > "${REVIVE_CFG}" <<EOF
+    command cat >"${REVIVE_CFG}" <<EOF
 ignoreGeneratedHeader = false
 severity = "warning"
 confidence = 0.8
@@ -37,4 +55,5 @@ warningCode = 2
 [rule.errorf]
 EOF
 fi
+
 exec "$REVIVE" -config "${REVIVE_CFG}" ./...

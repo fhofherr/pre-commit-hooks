@@ -1,8 +1,16 @@
 ---
 - id: buf-check-lint
-  description: "Runs buf check lint. Requires go to be installed separately"
+  description: "Runs buf check lint. Requires buf to be installed separately"
   name: buf-check-lint
   entry: "protobuf/buf-check-lint.sh"
+  types:
+    - proto
+  language: script
+  pass_filenames: false
+- id: buf-check-breaking
+  description: "Runs buf breaking. Requires buf to be installed separately"
+  name: buf-check-breaking
+  entry: "protobuf/buf-check-breaking.sh"
   types:
     - proto
   language: script
