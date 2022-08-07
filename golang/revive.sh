@@ -31,8 +31,6 @@ if [[ ! -f "${REVIVE_CFG}" ]]; then
 ignoreGeneratedHeader = false
 severity = "warning"
 confidence = 0.8
-errorCode = 1
-warningCode = 2
 
 [rule.blank-imports]
 [rule.context-as-argument]
@@ -56,4 +54,4 @@ warningCode = 2
 EOF
 fi
 
-exec "$REVIVE" -config "${REVIVE_CFG}" ./...
+exec "$REVIVE" -set_exit_status -config "${REVIVE_CFG}" ./...
