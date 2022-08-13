@@ -11,7 +11,7 @@ function abort() {
     exit 1
 }
 
-REVIVE="$(command -v revive 2>/dev/null)"
+REVIVE="$(command -v revive 2>/dev/null)" || true
 
 while (($# > 0)); do
     case "$1" in
